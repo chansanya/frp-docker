@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  frps:
+    image: frp-service:0.61.2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - FRP=frps  # 指定运行 frps 服务端
+#    volumes:
+#      - ./frps.toml:/frp/frps.toml  # 挂载自定义配置
+    ports:
+      - "7000:7000"
+      - "7001:7001"
+      - "7500:7500"
+      - "7002-7010:7002-7010"
+    restart: unless-stopped
+
+  # 可选：frpc 客户端示例（需取消注释并配置）
+  # frpc:
+  #   image: frp-service
+  #   environment:
+  #     - FRP=frpc  # 指定运行

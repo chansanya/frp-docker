@@ -1,0 +1,56 @@
+# 示例配置 https://github.com/fatedier/frp/blob/dev/conf/frpc_full_example.toml
+
+# 连接服务端的地址。
+serverAddr = "youdomain.com"
+# 连接服务端的端口
+serverPort = 9550
+# 用户名，设置此参数后，代理名称会被修改为 {user}.{proxyName}，避免代理名称和其他用户冲突。
+user = "PC"
+
+# 客户端鉴权配置。
+auth.method = "token"
+auth.token = "qazWSX!@#"
+
+# 客户端 AdminServer 配置。
+webServer.addr = "0.0.0.0"
+webServer.port = 7400
+webServer.user = "admin"
+webServer.password = "qazWSX!@#123"
+
+# 客户端网络层配置。
+transport.poolCount = 5
+
+start = ["tcp", "blog"]
+
+# 访问链接 youdomain:9553
+[[proxies]]
+name = "tcp"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8080
+# 设置0 则随机分配
+remotePort = 9553
+
+
+[[proxies]]
+name = "blog"
+type = "http"
+localIP = "127.0.0.1"
+localPort = 8080
+
+# 访问链接 http://blog.youdomain.com:9551
+subdomain = "blog"
+# 访问链接 http://youdomain.com:9551
+customDomains = ["youdomain.com"]
+
+requestHeaders.set.power = "sakura"
+responseHeaders.set.power = "sakura"
+
+[[proxies]]
+name = "RDP-TCP"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 3389
+# 访问链接 youdomain.com:9554
+remotePort = 9554
+

@@ -1,0 +1,22 @@
+# 示例配置 https://github.com/fatedier/frp/blob/dev/conf/frps_full_example.toml
+bindPort = 7000
+auth.token = "qazWSX!@#"
+transport.maxPoolCount = 5
+
+# 	HTTP 类型代理监听的端口，启用后才能支持 HTTP 类型的代理
+vhostHTTPPort = 7001
+# 二级域名后缀
+subDomainHost = "youdomain.com"
+# 自定义404页面
+custom404Page = "/frp/404.html"
+
+webServer.addr = "0.0.0.0"
+webServer.port = 7500
+webServer.user = "admin"
+webServer.password = "qazWSX!@#123"
+
+# 端口范围
+allowPorts = [
+  { start = 7002, end = 7010 },
+  { single = 7011 }
+]
