@@ -17,8 +17,11 @@ services:
       - "7002-7010:7002-7010"
     restart: unless-stopped
 
-  # 可选：frpc 客户端示例（需取消注释并配置）
   # frpc:
-  #   image: frp-service
-  #   environment:
-  #     - FRP=frpc  # 指定运行
+  #     image: lhyan/frp:0.61.2 # 可使用编译好的镜像
+  #     environment:
+  #       - FRP=frpc
+  #     volumes:
+  #       - ./frpc.toml:/frp/frpc.toml
+  #     restart: unless-stopped
+  #     network_mode: host
