@@ -5,7 +5,6 @@
 <img src="https://img.shields.io/badge/platform-Linux-blue" alt="Platform">
 <img src="https://img.shields.io/badge/language-Docker-yellow" alt="Language">
 
-**docker 环境下编译部署**
 </div>
 
 ## 自行编译示例
