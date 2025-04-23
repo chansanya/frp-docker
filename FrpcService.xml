@@ -1,0 +1,18 @@
+<service>
+  <!-- 唯一服务ID -->
+  <id>FrpcService</id>
+  <!-- 显示服务的名称 -->
+  <name>FrpcService</name>
+  <!-- 服务描述 -->
+  <description>FRP客户端</description>
+  <!-- 日志路径 -->
+  <logpath>E:\tools\frp\frp_0.61.1_windows_amd64\logs\</logpath>
+  <!-- 日志模式 -->
+  <logmode>roll</logmode>
+  <!-- 可执行文件的命令 -->
+  <executable>E:\tools\frp\frp_0.61.1_windows_amd64\frpc.exe </executable>
+  <!-- 开机启动 -->
+  <startmode>Automatic</startmode>
+  <!-- 启动参数 -->
+  <arguments>-c frpc.toml</arguments>
+</service>
