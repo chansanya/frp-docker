@@ -20,6 +20,7 @@ webServer.password = "qazWSX!@#123"
 # 客户端网络层配置。
 transport.poolCount = 5
 
+# 此处写要启动的 proxies 和 visitors 的 name
 start = ["tcp", "blog"]
 
 # 访问链接 youdomain:9553
@@ -62,15 +63,7 @@ localPort = 3389
 # 访问链接 youdomain.com:9570
 remotePort = 9570
 
-# 开启 xtcp
-[[proxies]]
-name = "pc-rdp-xtcp"
-type = "xtcp"
-localIP = "127.0.0.1"
-localPort = 3389
-secretKey  = "SSXXZZYYAABBWY80TM"
-
-# 开启p2p stcp
+#  stcp
 [[proxies]]
 name = "pc-rdp-stcp"
 type = "stcp"
@@ -78,7 +71,24 @@ localIP = "127.0.0.1"
 localPort = 3389
 secretKey  = "SSXXZZYYAABBWY90TM"
 
-# xtcp 访问
+# 开启p2p 开启 xtcp
+[[proxies]]
+name = "pc-rdp-xtcp"
+type = "xtcp"
+localIP = "127.0.0.1"
+localPort = 3389
+secretKey  = "SSXXZZYYAABBWY80TM"
+
+#  stcp 访问
+[[visitors]]
+name = "visit-rdp"
+type = "stcp"
+serverName = "pc-rdp-stcp"
+secretKey  = "SSXXZZYYAABBWY90TM"
+bindAddr  = "127.0.0.1"
+bindPort  = 13390
+
+# p2p 模式  xtcp 访问
 [[visitors]]
 name = "visit-pc-rdp"
 type = "xtcp"
@@ -87,13 +97,4 @@ serverName = "pc-rdp-xtcp"
 secretKey  = "SSXXZZYYAABBWY80TM"
 bindAddr  = "127.0.0.1"
 bindPort  = 13389
-
-#  p2p 模式 stcp 访问
-[[visitors]]
-name = "visit-rdp"
-type = "stcp"
-serverName = "pc-rdp-stcp"
-secretKey  = "SSXXZZYYAABBWY90TM"
-bindAddr  = "127.0.0.1"
-bindPort  = 13390
 
