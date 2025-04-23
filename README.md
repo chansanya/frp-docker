@@ -45,3 +45,16 @@ services:
     restart: unless-stopped
     network_mode: host
 ```
+
+## Windows服务自启
+[下载WinSW](https://github.com/winsw/winsw/releases)
+
+已Frp客户端威例:
+
+修改文件名为`FrpcService`
+
+```shell
+FrpcService.exe install
+```
+
+打开Windows 服务找到`FrpcService` 点击启动
