@@ -49,7 +49,7 @@ services:
 ## Windows服务自启
 [下载WinSW](https://github.com/winsw/winsw/releases)
 
-已Frp客户端威例:
+以Frp客户端为例:
 
 修改文件名为`FrpcService`
 
