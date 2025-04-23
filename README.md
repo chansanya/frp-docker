@@ -53,8 +53,14 @@ services:
 
 修改文件名为`FrpcService`
 
+**安装**
 ```shell
 FrpcService.exe install
+```
+
+**启动**
+```
+FrpcService.exe start
 ```
 
 打开Windows 服务找到`FrpcService` 点击启动
