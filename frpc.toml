@@ -54,3 +54,46 @@ localPort = 3389
 # 访问链接 youdomain.com:9554
 remotePort = 9554
 
+[[proxies]]
+name = "pc-rdp-tcp"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 3389
+# 访问链接 youdomain.com:9570
+remotePort = 9570
+
+# 开启 xtcp
+[[proxies]]
+name = "pc-rdp-xtcp"
+type = "xtcp"
+localIP = "127.0.0.1"
+localPort = 3389
+secretKey  = "SSXXZZYYAABBWY80TM"
+
+# 开启p2p stcp
+[[proxies]]
+name = "pc-rdp-stcp"
+type = "stcp"
+localIP = "127.0.0.1"
+localPort = 3389
+secretKey  = "SSXXZZYYAABBWY90TM"
+
+# xtcp 访问
+[[visitors]]
+name = "visit-pc-rdp"
+type = "xtcp"
+# 与主配置中的 name 和 sk 一致
+serverName = "pc-rdp-xtcp"
+secretKey  = "SSXXZZYYAABBWY80TM"
+bindAddr  = "127.0.0.1"
+bindPort  = 13389
+
+#  p2p 模式 stcp 访问
+[[visitors]]
+name = "visit-rdp"
+type = "stcp"
+serverName = "pc-rdp-stcp"
+secretKey  = "SSXXZZYYAABBWY90TM"
+bindAddr  = "127.0.0.1"
+bindPort  = 13390
+
